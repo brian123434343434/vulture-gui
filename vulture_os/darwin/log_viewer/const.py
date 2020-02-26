@@ -474,9 +474,10 @@ DEFAULT_MESSAGE_QUEUE_COLUMNS = {
 DARWIN_COLUMNS = {
     "evt_id": "string",
     "time": "string",
-    "evt_time": "string",
-    "filter": "string",
-    "certitude": "integer",
+    "af_threat_type": "string",
+    "af_score": "integer",
+    "af_threat_name": "dict",
+    "af_web_domain": "string",
     "details": "string"
 }
 

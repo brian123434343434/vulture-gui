@@ -74,8 +74,7 @@ def alert_handler(alert, mongo, redis, filepath, max_tries=3, sec_between_retrie
             else:
                 try:
                     context = json.loads(context.decode())
-                    context['evt_time'] = context.pop("time", "")
-                    alertData.update(context)
+                    alertData['context'] = context
                 except json.JSONDecodeError as e:
                     logger.error("Reconcile: context is not a valid JSON: {}".format(e))
 
@@ -88,16 +87,6 @@ def alert_handler(alert, mongo, redis, filepath, max_tries=3, sec_between_retrie
     except Exception as e:
         logger.error("Reconcile: could not write alert {} to log file {} -> {}".format(evt_id, filepath, e))
 
-    redis.redis.publish(REDIS_RECONCILIED_CHANNEL, json.dumps(alertData))
-
-    time = alertData.get('time', None)
-    if time:
-        time = datetime.strptime(time, "%Y-%m-%d%Z%H:%M:%S%z")
-        alertData['time'] = time
-    else:
-        logger.warning("Reconcile: while treating alert, no 'time' field was found!")
-
-    mongo.insert(MONGO_DATABASE, MONGO_COLLECTION, alertData)
     return True
 
 

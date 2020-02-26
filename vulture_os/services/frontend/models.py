@@ -342,7 +342,7 @@ class Frontend(models.Model):
     )
     """ file_path for file listeners """
     file_path = models.TextField(
-        default="/var/log/darwin/alerts.log",
+        default="/var/log/darwin/reconciled-alerts.log",
         help_text=_("Local file path to listen on")
     )
 
