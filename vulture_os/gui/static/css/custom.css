@@ -931,3 +931,8 @@ ul li{
     overflow: auto;
     max-height: 400px;
 }
+
+.hint_darwin_filter{
+    margin-top: 0;
+    margin-bottom: 25px;
+}
