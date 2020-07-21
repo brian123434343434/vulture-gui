@@ -193,19 +193,21 @@ class FrontendForm(ModelForm):
             self.fields[field_name].empty_label = None
         self.fields['error_template'].empty_label = "No template"
         # Set required in POST data to False
-        for field_name in ['log_condition', 'ruleset', 'log_level', 'listening_mode', 'headers', 'custom_haproxy_conf',
+        for field_name in ['log_condition', 'ruleset', 'log_level', 'listening_mode', 'headers',            
+        'custom_haproxy_conf',
                            'cache_total_max_size', 'cache_max_age', 'compression_algos', 'compression_mime_types',
                            'error_template', 'tenants_config', 'enable_logging_reputation', 'impcap_filter', 'impcap_filter_type',
                            'impcap_intf', 'tags', 'timeout_client', 'timeout_connect', 'timeout_keep_alive',
                            'parser_tag', 'file_path', 'node', 'api_parser_type', 'api_parser_use_proxy',
                            'elasticsearch_host', 'elasticsearch_auth', 'elasticsearch_verify_ssl',
-                           'elasticsearch_username', 'elasticsearch_password', 'elasticsearch_index', 'forcepoint_host',
-                           'forcepoint_username', 'forcepoint_password', "symantec_username", "symantec_password",
-                           "aws_access_key_id", "aws_secret_access_key", "aws_bucket_name", "akamai_host",
-                           "akamai_client_secret", "akamai_access_token", "akamai_client_token", 'akamai_config_id',
-                           'office365_tenant_id', 'office365_client_id', 'office365_client_secret',
-                           'keep_source_fields', 'imperva_base_url', 'imperva_api_key', 'imperva_api_id',
-                           'imperva_private_key', 'darwin_mode']:
+                           'elasticsearch_username', 'elasticsearch_password', 'elasticsearch_index', 
+                           'forcepoint_host', 'forcepoint_username', 'forcepoint_password', 
+                           "symantec_username", "symantec_password", "aws_access_key_id", 
+                           "aws_secret_access_key", "aws_bucket_name", "akamai_host",
+                           "akamai_client_secret", "akamai_access_token", "akamai_client_token", 
+                           'akamai_config_id', 'office365_tenant_id', 'office365_client_id', 
+                           'office365_client_secret', 'keep_source_fields', 'imperva_base_url', 
+                           'imperva_api_key', 'imperva_api_id', 'imperva_private_key', 'darwin_mode']:
             self.fields[field_name].required = False
 
         """ Build choices of "ruleset" field with rsyslog jinja templates names """
