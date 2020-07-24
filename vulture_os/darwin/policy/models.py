@@ -203,5 +203,3 @@ class FilterPolicy(models.Model):
     def socket_path(self):
         return "{}/{}_{}.sock".format(SOCKETS_PATH, self.filter.name, self.policy.id)
 
-    def mmdarwin_parameters_rsyslog_str(self):
-        return str(self.mmdarwin_parameters).replace("\'", "\"")

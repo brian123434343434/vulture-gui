@@ -857,7 +857,7 @@ class Frontend(models.Model):
             'CONF_PATH': HAPROXY_PATH,
             'tags': self.tags,
             'serialized_blwl_list': serialized_blwl_list,
-            'darwin_policies': FilterPolicy.objects.filter(policy=self.darwin_policy),
+            'darwin_filters': FilterPolicy.objects.filter(policy=self.darwin_policy),
             'keep_source_fields': self.keep_source_fields,
             'darwin_mode': self.darwin_mode,
             'tenants_config': self.tenants_config
